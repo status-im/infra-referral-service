@@ -8,6 +8,9 @@ starterpack_eth_contract_name: '{{lookup("passwordstore", "service/starterpack/t
 starterpack_eth_private_key: '{{lookup("passwordstore", "service/starterpack/test/eth/priv-key")}}'
 starterpack_secret_key_base: '{{lookup("passwordstore", "service/starterpack/test/secret-key-base")}}'
 
+# Starter Pack API port
+starterpack_app_port: 3000
+
 # add a swap file to avoid memory issues when syncing
 swap_file_size_mb: 2048
 
@@ -22,5 +25,5 @@ nginx_sites:
     - ssl_certificate_key /certs/status.im/origin.key
 
     - location / {
-        proxy_pass http://localhost:8080/;
+        proxy_pass http://localhost:{{ starterpack_app_port }}/;
       }
