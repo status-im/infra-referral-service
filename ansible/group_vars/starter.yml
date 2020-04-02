@@ -16,7 +16,7 @@ swap_file_size_mb: 2048
 
 # Proxy for WSGI server assumed to run on port 8000
 nginx_sites:
-  wsgi_proxy:
+  starter_pack:
     - listen 443 ssl
 
     - server_name {{ stage }}.starter-pack.status.im
