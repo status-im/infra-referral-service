@@ -1,4 +1,7 @@
 ---
+# Key base for production cookies
+starterpack_secret_key_base: ~
+
 # required service env variables
 starterpack_google_product_id: 'starterpack.0'
 starterpack_google_package_name: 'im.status.ethereum'
@@ -22,6 +25,10 @@ starterpack_app_tag: 'deploy-test'
 starterpack_app_image: 'statusteam/starterpack:{{ starterpack_app_tag }}'
 starterpack_app_vol: '{{ starterpack_service_path }}/app'
 starterpack_app_port: 3000
+
+# Sideqik for running jobs
+starterpack_queue_name: '{{ starterpack_service_name }}-queue'
+starterpack_queue_image: '{{ starterpack_app_image }}'
 
 # PostgreSQL for data storage
 starterpack_db_cont_name: '{{ starterpack_service_name }}-db'

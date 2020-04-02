@@ -7,7 +7,7 @@
         app:
           container_name: '{{ starterpack_app_name }}'
           image: '{{ starterpack_app_image }}'
-          restart: 'on-failure'
+          restart: 'always'
           env_file: '{{ starterpack_service_path }}/app.env'
           deploy:
             labels:
@@ -20,12 +20,27 @@
           depends_on:
             - 'db'
             - 'cache'
+            - 'queue'
+
+        queue:
+          container_name: '{{ starterpack_queue_name }}'
+          image: '{{ starterpack_queue_image }}'
+          restart: 'always'
+          env_file: '{{ starterpack_service_path }}/app.env'
+          command: 'sidekiq'
+          deploy:
+            labels:
+              # automatic image updates
+              com.centurylinklabs.watchtower.enable: 'true'
+          depends_on:
+            - 'db'
+            - 'cache'
 
         db:
           container_name: '{{ starterpack_db_cont_name }}'
           image: '{{ starterpack_db_image }}'
           user: root
-          restart: 'on-failure'
+          restart: 'always'
           env_file: '{{ starterpack_service_path }}/db.env'
           tmpfs:
             - '/run/postgresql'
@@ -36,7 +51,7 @@
         cache:
           container_name: '{{ starterpack_cache_name }}'
           image: '{{ starterpack_cache_image }}'
-          restart: 'on-failure'
+          restart: 'always'
           # docker-entrypoint.sh tries to chown /data which will not work
           entrypoint: redis-server
           volumes:
