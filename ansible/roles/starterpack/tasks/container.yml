@@ -1,0 +1,17 @@
+---
+- name: 'Create compose file: {{ starterpack_service_name }}'
+  copy:
+    dest: '{{ starterpack_service_compose }}'
+    content: '{{ starterpack_compose | to_nice_yaml }}'
+    owner: dockremap
+    group: docker
+    mode: 0644
+
+- name: 'Create containers: {{ starterpack_service_name }}'
+  docker_compose:
+    project_src: '{{ starterpack_service_path }}'
+    state: '{{ compose_state }}'
+    recreate: '{{ compose_recreate }}'
+    restarted: '{{ compose_restart }}'
+    pull: false
+    build: no

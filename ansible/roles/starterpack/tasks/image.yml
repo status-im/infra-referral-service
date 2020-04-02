@@ -1,0 +1,23 @@
+---
+- name: Create repo directory
+  file:
+    path: '{{ starterpack_service_path }}/repo'
+    state: directory
+    owner: '{{ ansible_user }}'
+
+- name: Clone starterpack repo
+  git:
+    repo: '{{ starterpack_service_repo }}'
+    dest: '{{ starterpack_service_path }}/repo'
+    version: chore/move-to-rails
+    update: true
+    accept_hostkey: yes
+  # ssh-agent doesn't allow key to pass through remote sudo commands.
+  become: false
+
+- name: Build the starterpack image
+  docker_image:
+    build:
+      path: '{{ starterpack_service_path }}/repo/server'
+    name: '{{ starterpack_app_image }}'
+    source: build

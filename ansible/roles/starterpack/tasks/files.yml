@@ -1,0 +1,36 @@
+---
+- name: Create container folders
+  file:
+    path: '{{ item }}'
+    owner: dockremap
+    group: docker
+    state: directory
+  with_items:
+    - '{{ starterpack_service_path }}'
+    - '{{ starterpack_app_vol }}'
+    - '{{ starterpack_cache_vol }}'
+
+- name: Create database folder
+  file:
+    path: '{{ starterpack_db_vol }}'
+    owner: '{{ starterpack_db_host_uid }}'
+    group: docker
+    state: directory
+
+- name: Create env file for app
+  template:
+    src: 'app.env.j2'
+    dest: '{{ starterpack_service_path }}/app.env'
+    mode: 0640
+
+- name: Create env file for db
+  template:
+    src: 'db.env.j2'
+    dest: '{{ starterpack_service_path }}/db.env'
+    mode: 0640
+
+- name: Create the Google Auth JSON file
+  copy:
+    dest: '{{ starterpack_app_vol }}/{{ starterpack_google_auth_json_file }}'
+    content: '{{ starterpack_google_auth_json | mandatory }}'
+    mode: 0640

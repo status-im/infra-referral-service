@@ -1,0 +1,8 @@
+---
+- import_tasks: kernel.yml
+- import_tasks: install.yml
+- import_tasks: files.yml
+- import_tasks: compose.yml
+- import_tasks: image.yml
+- import_tasks: container.yml
+- import_tasks: consul.yml

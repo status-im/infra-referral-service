@@ -1,0 +1,40 @@
+---
+- name: 'Create container config: {{ starterpack_service_name }}'
+  set_fact:
+    starterpack_compose:
+      version: '3.7'
+      services:
+        app:
+          container_name: '{{ starterpack_app_name }}'
+          image: '{{ starterpack_app_image }}'
+          restart: 'on-failure'
+          env_file: '{{ starterpack_service_path }}/app.env'
+          deploy:
+            labels:
+              # automatic image updates
+              com.centurylinklabs.watchtower.enable: 'true'
+          ports:
+            - '{{ starterpack_app_port }}:{{ starterpack_app_port }}/tcp'
+          volumes:
+            - '{{ starterpack_app_vol }}:/data'
+
+        db:
+          container_name: '{{ starterpack_db_name }}'
+          image: '{{ starterpack_db_image }}'
+          user: root
+          restart: 'on-failure'
+          env_file: '{{ starterpack_service_path }}/db.env'
+          tmpfs:
+            - '/run/postgresql'
+            - '/tmp'
+          volumes:
+            - '{{ starterpack_db_vol }}:/var/lib/postgresql/data'
+
+        cache:
+          container_name: '{{ starterpack_cache_name }}'
+          image: '{{ starterpack_cache_image }}'
+          restart: 'on-failure'
+          # docker-entrypoint.sh tries to chown /data which will not work
+          entrypoint: redis-server
+          volumes:
+            - '{{ starterpack_cache_vol }}:/data'
