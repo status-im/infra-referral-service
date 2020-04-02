@@ -6,6 +6,7 @@ starterpack_eth_http_endpoint: '{{lookup("passwordstore", "service/starterpack/t
 starterpack_eth_contract_address: '{{lookup("passwordstore", "service/starterpack/test/eth/contract-addr")}}'
 starterpack_eth_contract_name: '{{lookup("passwordstore", "service/starterpack/test/eth/contract-name")}}'
 starterpack_eth_private_key: '{{lookup("passwordstore", "service/starterpack/test/eth/priv-key")}}'
+starterpack_secret_key_base: '{{lookup("passwordstore", "service/starterpack/test/secret-key-base")}}'
 
 # add a swap file to avoid memory issues when syncing
 swap_file_size_mb: 2048
