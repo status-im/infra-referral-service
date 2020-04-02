@@ -24,7 +24,7 @@ starterpack_app_vol: '{{ starterpack_service_path }}/app'
 starterpack_app_port: 3000
 
 # PostgreSQL for data storage
-starterpack_db_name: '{{ starterpack_service_name }}-db'
+starterpack_db_cont_name: '{{ starterpack_service_name }}-db'
 starterpack_db_tag: '9.6-alpine'
 starterpack_db_image: 'postgres:{{ starterpack_db_tag }}'
 starterpack_db_vol: '{{ starterpack_service_path }}/db'

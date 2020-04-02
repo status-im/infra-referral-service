@@ -19,7 +19,7 @@
             - '{{ starterpack_app_vol }}:/data'
 
         db:
-          container_name: '{{ starterpack_db_name }}'
+          container_name: '{{ starterpack_db_cont_name }}'
           image: '{{ starterpack_db_image }}'
           user: root
           restart: 'on-failure'
