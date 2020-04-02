@@ -14,10 +14,14 @@
     accept_hostkey: yes
   # ssh-agent doesn't allow key to pass through remote sudo commands.
   become: false
+  register: repo_clone
 
 - name: Build the starterpack image
   docker_image:
+    name: '{{ starterpack_app_image }}'
     build:
       path: '{{ starterpack_service_path }}/repo/server'
-    name: '{{ starterpack_app_image }}'
+      rm:  true
+    pull: false
     source: build
+    force_source: '{{ repo_clone.changed }}'
