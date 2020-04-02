@@ -2,7 +2,8 @@
 - name: Configure Starter Pack host
   hosts: starter
   roles:
-    - { role: swap-file,   tags: swap-file }
-    - { role: starterpack, tags: starterpack }
-    - { role: nginx,       tags: nginx }
-    - { role: threatstack, tags: threatstack }
+    - { role: origin-certs, tags: origin-certs }
+    - { role: swap-file,    tags: swap-file }
+    - { role: starterpack,  tags: starterpack }
+    - { role: nginx,        tags: nginx }
+    - { role: threatstack,  tags: threatstack }
