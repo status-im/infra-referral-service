@@ -4,8 +4,8 @@ This repo configures infrastructure for the [starterpack-service](https://github
 
 # Endpoints
 
-* https://starter-pack-prod.status.im/ - Production
-* https://starter-pack-dev.status.im/ - Development
+* https://prod.starter-pack.status.im/ - Production
+* https://test.starter-pack.status.im/ - Testing
 
 # Repo Usage
 
