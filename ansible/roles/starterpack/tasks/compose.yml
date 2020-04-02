@@ -17,6 +17,9 @@
             - '{{ starterpack_app_port }}:{{ starterpack_app_port }}/tcp'
           volumes:
             - '{{ starterpack_app_vol }}:/data'
+          depends_on:
+            - 'db'
+            - 'cache'
 
         db:
           container_name: '{{ starterpack_db_cont_name }}'
