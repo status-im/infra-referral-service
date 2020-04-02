@@ -14,9 +14,9 @@ module "main" {
   open_tcp_ports = ["80", "443"]
 }
 
-resource "cloudflare_record" "starter_dev" {
+resource "cloudflare_record" "main" {
   zone_id = local.zones["status.im"]
-  name    = "starter-pack-${terraform.workspace}"
+  name    = "${terraform.workspace}-starter-pack"
   type    = "A"
   proxied = true
   value   = module.main.public_ips[0]
