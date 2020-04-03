@@ -8,7 +8,7 @@ module "main" {
   host_count = 1
   env        = "starter"
   group      = "starter"
-  size       = "s-2vcpu-4gb"
+  size       = "s-1vcpu-2gb"
   domain     = var.domain
 
   open_tcp_ports = ["80", "443"]
