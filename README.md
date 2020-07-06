@@ -1,11 +1,11 @@
 # Description
 
-This repo configures infrastructure for the [starterpack-service](https://github.com/status-im/starterpack-service).
+This repo configures infrastructure for the [referral-service](https://github.com/status-im/referral-service).
 
 # Endpoints
 
-* https://prod-starter-pack.status.im/ - Production
-* https://test-starter-pack.status.im/ - Testing
+* https://prod-referral.status.im/ - Production
+* https://test-referral.status.im/ - Testing
 
 # Repo Usage
 

@@ -6,14 +6,14 @@
     group: docker
     state: directory
   with_items:
-    - '{{ starterpack_service_path }}'
-    - '{{ starterpack_app_vol }}'
-    - '{{ starterpack_cache_vol }}'
+    - '{{ referral_srv_service_path }}'
+    - '{{ referral_srv_app_vol }}'
+    - '{{ referral_srv_cache_vol }}'
 
 - name: Create database folder
   file:
-    path: '{{ starterpack_db_vol }}'
-    owner: '{{ starterpack_db_host_uid }}'
+    path: '{{ referral_srv_db_vol }}'
+    owner: '{{ referral_srv_db_host_uid }}'
     group: docker
     mode: 0777
     state: directory
@@ -21,17 +21,17 @@
 - name: Create env file for app
   template:
     src: 'app.env.j2'
-    dest: '{{ starterpack_service_path }}/app.env'
+    dest: '{{ referral_srv_service_path }}/app.env'
     mode: 0640
 
 - name: Create env file for db
   template:
     src: 'db.env.j2'
-    dest: '{{ starterpack_service_path }}/db.env'
+    dest: '{{ referral_srv_service_path }}/db.env'
     mode: 0640
 
 - name: Create the Google Auth JSON file
   copy:
-    dest: '{{ starterpack_app_vol }}/{{ starterpack_google_auth_json_file }}'
-    content: '{{ starterpack_google_auth_json | mandatory }}'
+    dest: '{{ referral_srv_app_vol }}/{{ referral_srv_google_auth_json_file }}'
+    content: '{{ referral_srv_google_auth_json | mandatory }}'
     mode: 0640

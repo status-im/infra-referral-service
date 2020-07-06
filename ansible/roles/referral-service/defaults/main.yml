@@ -1,0 +1,56 @@
+---
+# Key base for production cookies
+referral_srv_secret_key_base: ~
+
+# required service env variables
+referral_srv_google_product_id: 'referral-service.0'
+referral_srv_google_package_name: 'im.status.ethereum'
+referral_srv_google_auth_json: ~
+referral_srv_google_auth_json_file: 'google-auth.json'
+
+# Ethereum contract
+referral_srv_eth_http_endpoint: ~
+referral_srv_eth_contract_address: ~
+referral_srv_eth_contract_name: ~
+referral_srv_eth_private_key: ~
+
+referral_srv_service_name: 'referral'
+referral_srv_service_path: '/docker/{{ referral_srv_service_name }}'
+referral_srv_service_compose: '{{ referral_srv_service_path }}/docker-compose.yml'
+referral_srv_service_repo: 'git@github.com:status-im/referral-service.git'
+
+# Rails application hosted with puma
+referral_srv_app_name: '{{ referral_srv_service_name }}-app'
+referral_srv_app_tag: 'deploy-test'
+referral_srv_app_image: 'statusteam/referral-service:{{ referral_srv_app_tag }}'
+referral_srv_app_vol: '{{ referral_srv_service_path }}/app'
+referral_srv_app_port: 3000
+
+# Sidekiq for running jobs
+referral_srv_queue_name: '{{ referral_srv_service_name }}-queue'
+referral_srv_queue_image: '{{ referral_srv_app_image }}'
+
+# PostgreSQL for data storage
+referral_srv_db_cont_name: '{{ referral_srv_service_name }}-db'
+referral_srv_db_tag: '9.6-alpine'
+referral_srv_db_image: 'postgres:{{ referral_srv_db_tag }}'
+referral_srv_db_vol: '{{ referral_srv_service_path }}/db'
+referral_srv_db_uid: 70
+referral_srv_db_host_uid: '{{ 100000 + referral_srv_db_uid | int }}'
+referral_srv_db_port: '5432'
+referral_srv_db_name: 'referral'
+referral_srv_db_user: 'referral'
+referral_srv_db_pass: 'changeIfYouCare'
+
+# Redis for transaction cache
+referral_srv_cache_name: '{{ referral_srv_service_name }}-cache'
+referral_srv_cache_tag: '5.0-alpine'
+referral_srv_cache_image: 'redis:{{ referral_srv_cache_tag }}'
+referral_srv_cache_vol: '{{ referral_srv_service_path }}/cache'
+referral_srv_cache_port: 6379
+referral_srv_cache_db: '0'
+
+# general container management
+compose_state: 'present'
+compose_recreate: 'smart'
+compose_restart: false

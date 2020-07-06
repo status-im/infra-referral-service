@@ -1,0 +1,17 @@
+---
+- name: 'Create compose file: {{ referral_srv_service_name }}'
+  copy:
+    dest: '{{ referral_srv_service_compose }}'
+    content: '{{ referral_srv_compose | to_nice_yaml }}'
+    owner: dockremap
+    group: docker
+    mode: 0644
+
+- name: 'Create containers: {{ referral_srv_service_name }}'
+  docker_compose:
+    project_src: '{{ referral_srv_service_path }}'
+    state: '{{ compose_state }}'
+    recreate: '{{ compose_recreate }}'
+    restarted: '{{ compose_restart }}'
+    pull: false
+    build: no

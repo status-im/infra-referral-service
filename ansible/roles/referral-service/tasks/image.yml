@@ -1,14 +1,14 @@
 ---
 - name: Create repo directory
   file:
-    path: '{{ starterpack_service_path }}/repo'
+    path: '{{ referral_srv_service_path }}/repo'
     state: directory
     owner: '{{ ansible_user }}'
 
-- name: Clone starterpack repo
+- name: Clone referral service repo
   git:
-    repo: '{{ starterpack_service_repo }}'
-    dest: '{{ starterpack_service_path }}/repo'
+    repo: '{{ referral_srv_service_repo }}'
+    dest: '{{ referral_srv_service_path }}/repo'
     version: chore/move-to-rails
     update: true
     accept_hostkey: yes
@@ -16,11 +16,11 @@
   become: false
   register: repo_clone
 
-- name: Build the starterpack image
+- name: Build the referral service image
   docker_image:
-    name: '{{ starterpack_app_image }}'
+    name: '{{ referral_srv_app_image }}'
     build:
-      path: '{{ starterpack_service_path }}/repo/server'
+      path: '{{ referral_srv_service_path }}/repo/server'
       rm:  true
     pull: false
     source: build

@@ -1,0 +1,29 @@
+---
+# required service env variables
+referral_srv_google_auth_json: 'TODO'
+referral_srv_apple_secret: 'TODO'
+referral_srv_eth_http_endpoint: '{{lookup("passwordstore", "service/referral-service/test/eth/endpoint")}}'
+referral_srv_eth_contract_address: '{{lookup("passwordstore", "service/referral-service/test/eth/contract-addr")}}'
+referral_srv_eth_contract_name: '{{lookup("passwordstore", "service/referral-service/test/eth/contract-name")}}'
+referral_srv_eth_private_key: '{{lookup("passwordstore", "service/referral-service/test/eth/priv-key")}}'
+referral_srv_secret_key_base: '{{lookup("passwordstore", "service/referral-service/test/secret-key-base")}}'
+
+# Referral Service API port
+referral_srv_app_port: 3000
+
+# add a swap file to avoid memory issues when syncing
+swap_file_size_mb: 2048
+
+# Proxy for WSGI server assumed to run on port 8000
+nginx_sites:
+  referral_service:
+    - listen 443 ssl
+
+    - server_name {{ stage }}.starter-pack.status.im
+
+    - ssl_certificate     /certs/status.im/origin.crt
+    - ssl_certificate_key /certs/status.im/origin.key
+
+    - location / {
+        proxy_pass http://localhost:{{ referral_srv_app_port }}/;
+      }

@@ -1,9 +1,9 @@
 ---
-- name: Configure Starter Pack host
-  hosts: starter
+- name: Configure Referral service host
+  hosts: referral
   roles:
-    - { role: origin-certs, tags: origin-certs }
-    - { role: swap-file,    tags: swap-file }
-    - { role: starterpack,  tags: starterpack }
-    - { role: nginx,        tags: nginx }
-    - { role: threatstack,  tags: threatstack }
+    - { role: origin-certs,     tags: origin-certs }
+    - { role: swap-file,        tags: swap-file }
+    - { role: referral-service, tags: referral-service }
+    - { role: nginx,            tags: nginx }
+    - { role: threatstack,      tags: threatstack }

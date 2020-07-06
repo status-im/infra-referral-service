@@ -1,32 +1,32 @@
 ---
-- name: 'Create container config: {{ starterpack_service_name }}'
+- name: 'Create container config: {{ referral_srv_service_name }}'
   set_fact:
-    starterpack_compose:
+    referral_srv_compose:
       version: '3.7'
       services:
         app:
-          container_name: '{{ starterpack_app_name }}'
-          image: '{{ starterpack_app_image }}'
+          container_name: '{{ referral_srv_app_name }}'
+          image: '{{ referral_srv_app_image }}'
           restart: 'always'
-          env_file: '{{ starterpack_service_path }}/app.env'
+          env_file: '{{ referral_srv_service_path }}/app.env'
           deploy:
             labels:
               # automatic image updates
               com.centurylinklabs.watchtower.enable: 'true'
           ports:
-            - '{{ starterpack_app_port }}:{{ starterpack_app_port }}/tcp'
+            - '{{ referral_srv_app_port }}:{{ referral_srv_app_port }}/tcp'
           volumes:
-            - '{{ starterpack_app_vol }}:/data'
+            - '{{ referral_srv_app_vol }}:/data'
           depends_on:
             - 'db'
             - 'cache'
             - 'queue'
 
         queue:
-          container_name: '{{ starterpack_queue_name }}'
-          image: '{{ starterpack_queue_image }}'
+          container_name: '{{ referral_srv_queue_name }}'
+          image: '{{ referral_srv_queue_image }}'
           restart: 'always'
-          env_file: '{{ starterpack_service_path }}/app.env'
+          env_file: '{{ referral_srv_service_path }}/app.env'
           command: 'sidekiq'
           deploy:
             labels:
@@ -37,22 +37,22 @@
             - 'cache'
 
         db:
-          container_name: '{{ starterpack_db_cont_name }}'
-          image: '{{ starterpack_db_image }}'
+          container_name: '{{ referral_srv_db_cont_name }}'
+          image: '{{ referral_srv_db_image }}'
           user: root
           restart: 'always'
-          env_file: '{{ starterpack_service_path }}/db.env'
+          env_file: '{{ referral_srv_service_path }}/db.env'
           tmpfs:
             - '/run/postgresql'
             - '/tmp'
           volumes:
-            - '{{ starterpack_db_vol }}:/var/lib/postgresql/data'
+            - '{{ referral_srv_db_vol }}:/var/lib/postgresql/data'
 
         cache:
-          container_name: '{{ starterpack_cache_name }}'
-          image: '{{ starterpack_cache_image }}'
+          container_name: '{{ referral_srv_cache_name }}'
+          image: '{{ referral_srv_cache_image }}'
           restart: 'always'
           # docker-entrypoint.sh tries to chown /data which will not work
           entrypoint: redis-server
           volumes:
-            - '{{ starterpack_cache_vol }}:/data'
+            - '{{ referral_srv_cache_vol }}:/data'
