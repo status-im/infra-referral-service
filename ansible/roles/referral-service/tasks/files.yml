@@ -29,9 +29,3 @@
     src: 'db.env.j2'
     dest: '{{ referral_srv_service_path }}/db.env'
     mode: 0640
-
-- name: Create the Google Auth JSON file
-  copy:
-    dest: '{{ referral_srv_app_vol }}/{{ referral_srv_google_auth_json_file }}'
-    content: '{{ referral_srv_google_auth_json | mandatory }}'
-    mode: 0640

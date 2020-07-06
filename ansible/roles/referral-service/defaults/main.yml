@@ -3,10 +3,8 @@
 referral_srv_secret_key_base: ~
 
 # required service env variables
-referral_srv_google_product_id: 'referral-service.0'
-referral_srv_google_package_name: 'im.status.ethereum'
-referral_srv_google_auth_json: ~
-referral_srv_google_auth_json_file: 'google-auth.json'
+referral_srv_google_sign_in_client_id: ~
+referral_srv_google_sign_in_client_secret: ~
 
 # Ethereum contract
 referral_srv_eth_http_endpoint: ~
