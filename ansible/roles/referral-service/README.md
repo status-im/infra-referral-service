@@ -36,7 +36,7 @@ bef8a88c79db        referral-db      postgres:9.6-alpine                  2 hour
 And they are created using [Docker Compose](https://docs.docker.com/compose/), which is also the best way to manage them:
 ```
  $ cd /docker/referral
- $ sudo docker-compose ps  
+ $ docker-compose ps  
       Name                     Command               State           Ports         
 -----------------------------------------------------------------------------------
 referral-app     bundle exec puma -C config ...   Up      0.0.0.0:3000->3000/tcp
@@ -46,5 +46,5 @@ referral-queue   bundle exec sidekiq              Up
 ```
 To re-create the containers simply run:
 ```
- $ sudo docker-compose up -d --force-recreate
+ $ docker-compose up -d --force-recreate
 ```

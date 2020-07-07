@@ -15,7 +15,6 @@ referral_srv_eth_private_key: ~
 referral_srv_service_name: 'referral'
 referral_srv_service_path: '/docker/{{ referral_srv_service_name }}'
 referral_srv_service_compose: '{{ referral_srv_service_path }}/docker-compose.yml'
-referral_srv_service_repo: 'git@github.com:status-im/referral-service.git'
 
 # Rails application hosted with puma
 referral_srv_app_name: '{{ referral_srv_service_name }}-app'
