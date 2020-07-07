@@ -13,5 +13,5 @@
     state: '{{ compose_state }}'
     recreate: '{{ compose_recreate or app_env.changes or db_env.changed }}'
     restarted: '{{ compose_restart }}'
-    pull: false
-    build: no
+    pull: true
+    build: false
