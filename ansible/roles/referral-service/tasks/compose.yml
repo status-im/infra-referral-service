@@ -9,10 +9,10 @@
           image: '{{ referral_srv_app_image }}'
           restart: 'always'
           env_file: '{{ referral_srv_service_path }}/app.env'
-          deploy:
-            labels:
-              # automatic image updates
-              com.centurylinklabs.watchtower.enable: 'true'
+          labels:
+            # automatic image updates
+            com.centurylinklabs.watchtower.enable: 'true'
+            com.centurylinklabs.watchtower.lifecycle.post-update: 'rake db:migrate'
           ports:
             - '{{ referral_srv_app_port }}:{{ referral_srv_app_port }}/tcp'
           volumes:
@@ -22,16 +22,26 @@
             - 'cache'
             - 'queue'
 
+        # Migrations need to run before the app
+        migrate:
+          container_name: '{{ referral_srv_service_name }}-migrate'
+          image: '{{ referral_srv_app_image }}'
+          env_file: '{{ referral_srv_service_path }}/app.env'
+          command: 'rake db:migrate'
+          volumes:
+            - '{{ referral_srv_app_vol }}:/data'
+          depends_on:
+            - 'db'
+
         queue:
           container_name: '{{ referral_srv_queue_name }}'
           image: '{{ referral_srv_queue_image }}'
           restart: 'always'
           env_file: '{{ referral_srv_service_path }}/app.env'
           command: 'sidekiq'
-          deploy:
-            labels:
-              # automatic image updates
-              com.centurylinklabs.watchtower.enable: 'true'
+          labels:
+            # automatic image updates
+            com.centurylinklabs.watchtower.enable: 'true'
           depends_on:
             - 'db'
             - 'cache'
