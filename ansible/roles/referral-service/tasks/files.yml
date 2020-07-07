@@ -22,10 +22,14 @@
   template:
     src: 'app.env.j2'
     dest: '{{ referral_srv_service_path }}/app.env'
+    group: docker
     mode: 0640
+  register: app_env
 
 - name: Create env file for db
   template:
     src: 'db.env.j2'
     dest: '{{ referral_srv_service_path }}/db.env'
+    group: docker
     mode: 0640
+  register: db_env

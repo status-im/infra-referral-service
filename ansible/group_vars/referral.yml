@@ -1,7 +1,7 @@
 ---
 # required service env variables
-referral_srv_google_auth_json: 'TODO'
-referral_srv_apple_secret: 'TODO'
+referral_srv_google_sign_in_client_id: '{{lookup("passwordstore", "service/referral-service/test/google/sign-in-client-id")}}'
+referral_srv_google_sign_in_client_secret: '{{lookup("passwordstore", "service/referral-service/test/google/sign-in-client-secret")}}'
 referral_srv_eth_http_endpoint: '{{lookup("passwordstore", "service/referral-service/test/eth/endpoint")}}'
 referral_srv_eth_contract_address: '{{lookup("passwordstore", "service/referral-service/test/eth/contract-addr")}}'
 referral_srv_eth_contract_name: '{{lookup("passwordstore", "service/referral-service/test/eth/contract-name")}}'
