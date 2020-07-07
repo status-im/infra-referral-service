@@ -15,3 +15,10 @@
     restarted: '{{ compose_restart }}'
     pull: true
     build: false
+
+# Migrations need to run before the app
+- name: 'Run migrations: {{ referral_srv_service_name }}'
+  command: |
+    docker exec \
+      '{{ referral_srv_app_name }}' \
+      rake db:migrate

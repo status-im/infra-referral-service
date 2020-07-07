@@ -22,17 +22,6 @@
             - 'cache'
             - 'queue'
 
-        # Migrations need to run before the app
-        migrate:
-          container_name: '{{ referral_srv_service_name }}-migrate'
-          image: '{{ referral_srv_app_image }}'
-          env_file: '{{ referral_srv_service_path }}/app.env'
-          command: 'rake db:migrate'
-          volumes:
-            - '{{ referral_srv_app_vol }}:/data'
-          depends_on:
-            - 'db'
-
         queue:
           container_name: '{{ referral_srv_queue_name }}'
           image: '{{ referral_srv_queue_image }}'
