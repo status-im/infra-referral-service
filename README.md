@@ -2,6 +2,8 @@
 
 This repo configures infrastructure for the [referral-service](https://github.com/status-im/referral-service).
 
+Configured by the [`ansible/roles/referral-service`](ansible/roles/referral-service) role.
+
 # Endpoints
 
 * https://prod-referral.status.im/admin - Production

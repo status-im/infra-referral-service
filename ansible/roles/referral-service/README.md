@@ -6,13 +6,17 @@ This role configures the [referral-service](https://github.com/status-im/referra
 
 Mostly the service requires certain secrets to be set:
 ```yaml
+# OAuth settings
+referral_srv_domain: 'referral.example.org'
+referral_srv_public_port: 443
+referral_srv_public_protocol: 'https'
+
 # for production cookies
 referral_srv_secret_key_base: '128charLongHexadecimal'
 
 # For Play Store integration
-referral_srv_google_product_id: 'referral.0'
-referral_srv_google_package_name: 'im.status.ethereum'
-referral_srv_google_auth_json: '{"AUTH":"JSON"}'
+referral_srv_google_sign_in_client_id: '1234-abcd..apps.googleusercontent.com'
+referral_srv_google_sign_in_client_secret: 'super-secret-secret'
 
 # For sending transactions via Infura
 referral_srv_eth_http_endpoint: 'https://mainnet.infura.io/v1/ABC'
@@ -26,11 +30,11 @@ referral_srv_eth_private_key: '0x4321'
 There are 4 containers in total:
 ```
  $ docker ps
-CONTAINER ID        NAMES               IMAGE                                CREATED             STATUS
-73944b7f9b8b        referral-app     statusteam/referral:deploy-test   2 hours ago         Up 2 hours
-69c684944dd7        referral-queue   statusteam/referral:deploy-test   2 hours ago         Up 2 hours
-d08c1de07f06        referral-cache   redis:5.0-alpine                     2 hours ago         Up 2 hours
-bef8a88c79db        referral-db      postgres:9.6-alpine                  2 hours ago         Up 2 hours
+CONTAINER ID    NAMES            IMAGE                             CREATED        STATUS
+73944b7f9b8b    referral-app     statusteam/referral:deploy-test   2 hours ago    Up 2 hours
+69c684944dd7    referral-queue   statusteam/referral:deploy-test   2 hours ago    Up 2 hours
+d08c1de07f06    referral-cache   redis:5.0-alpine                  2 hours ago    Up 2 hours
+bef8a88c79db    referral-db      postgres:9.6-alpine               2 hours ago    Up 2 hours
 ```
 
 And they are created using [Docker Compose](https://docs.docker.com/compose/), which is also the best way to manage them:
