@@ -4,8 +4,8 @@ This repo configures infrastructure for the [referral-service](https://github.co
 
 # Endpoints
 
-* https://prod-referral.status.im/ - Production
-* https://test-referral.status.im/ - Testing
+* https://prod-referral.status.im/admin - Production
+* https://test-referral.status.im/admin - Testing
 
 # Repo Usage
 
