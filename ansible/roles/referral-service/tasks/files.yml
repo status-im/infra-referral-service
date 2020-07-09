@@ -14,9 +14,10 @@
   file:
     path: '{{ referral_srv_db_vol }}'
     owner: '{{ referral_srv_db_host_uid }}'
-    group: docker
+    group: '{{ referral_srv_db_host_uid }}'
     mode: 0777
     state: directory
+    recurse: true
 
 - name: Create env file for app
   template:
