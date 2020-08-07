@@ -17,6 +17,10 @@ referral_srv_eth_contract_address: ~
 referral_srv_eth_contract_name: ~
 referral_srv_eth_private_key: ~
 
+# GeoIP API Auth
+referral_srv_geoip_account_id: ~
+referral_srv_geoip_license_key: ~
+
 referral_srv_service_name: 'referral'
 referral_srv_service_path: '/docker/{{ referral_srv_service_name }}'
 referral_srv_service_compose: '{{ referral_srv_service_path }}/docker-compose.yml'

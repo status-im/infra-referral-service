@@ -23,6 +23,10 @@ referral_srv_eth_http_endpoint: 'https://mainnet.infura.io/v1/ABC'
 referral_srv_eth_contract_address: '0x1234'
 referral_srv_eth_contract_name: 'Whatever'
 referral_srv_eth_private_key: '0x4321'
+
+# GeoIP API Auth for checking for VPNs and regions
+referral_srv_geoip_account_id: '123456'
+referral_srv_geoip_license_key: 'abcdefghijklmnrstpwxyz'
 ```
 
 # Management

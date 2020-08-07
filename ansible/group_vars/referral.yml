@@ -17,6 +17,10 @@ referral_srv_eth_private_key: '{{lookup("passwordstore", "service/referral-servi
 # Rails secret key base
 referral_srv_secret_key_base: '{{lookup("passwordstore", "service/referral-service/test/secret-key-base")}}'
 
+# GeoIP API Auth
+referral_srv_geoip_account_id: '{{lookup("passwordstore", "service/referral-service/test/geoip/account-id")}}'
+referral_srv_geoip_license_key: '{{lookup("passwordstore", "service/referral-service/test/geoip/license-key")}}'
+
 # Referral Service API port
 referral_srv_app_port: 3000
 
