@@ -5,21 +5,21 @@ referral_srv_public_port: 443
 referral_srv_public_protocol: 'https'
 
 # Google Sign-In
-referral_srv_google_sign_in_client_id: '{{lookup("passwordstore", "service/referral-service/test/google/sign-in-client-id")}}'
-referral_srv_google_sign_in_client_secret: '{{lookup("passwordstore", "service/referral-service/test/google/sign-in-client-secret")}}'
+referral_srv_google_sign_in_client_id: '{{lookup("passwordstore", "service/referral-service/"+stage+"/google/sign-in-client-id")}}'
+referral_srv_google_sign_in_client_secret: '{{lookup("passwordstore", "service/referral-service/"+stage+"/google/sign-in-client-secret")}}'
 
 # Ethereum contract
-referral_srv_eth_http_endpoint: '{{lookup("passwordstore", "service/referral-service/test/eth/endpoint")}}'
-referral_srv_eth_contract_address: '{{lookup("passwordstore", "service/referral-service/test/eth/contract-addr")}}'
-referral_srv_eth_contract_name: '{{lookup("passwordstore", "service/referral-service/test/eth/contract-name")}}'
-referral_srv_eth_private_key: '{{lookup("passwordstore", "service/referral-service/test/eth/priv-key")}}'
+referral_srv_eth_http_endpoint: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/endpoint")}}'
+referral_srv_eth_contract_address: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/contract-addr")}}'
+referral_srv_eth_contract_name: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/contract-name")}}'
+referral_srv_eth_private_key: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/priv-key")}}'
 
 # Rails secret key base
-referral_srv_secret_key_base: '{{lookup("passwordstore", "service/referral-service/test/secret-key-base")}}'
+referral_srv_secret_key_base: '{{lookup("passwordstore", "service/referral-service/"+stage+"/secret-key-base")}}'
 
 # GeoIP API Auth
-referral_srv_geoip_account_id: '{{lookup("passwordstore", "service/referral-service/test/geoip/account-id")}}'
-referral_srv_geoip_license_key: '{{lookup("passwordstore", "service/referral-service/test/geoip/license-key")}}'
+referral_srv_geoip_account_id: '{{lookup("passwordstore", "service/referral-service/"+stage+"/geoip/account-id")}}'
+referral_srv_geoip_license_key: '{{lookup("passwordstore", "service/referral-service/"+stage+"/geoip/license-key")}}'
 
 # Referral Service API port
 referral_srv_app_port: 3000
