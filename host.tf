@@ -21,3 +21,12 @@ resource "cloudflare_record" "main" {
   proxied = true
   value   = module.main.public_ips[0]
 }
+
+resource "cloudflare_record" "official" {
+  zone_id = local.zones["status.im"]
+  name    = "get"
+  type    = "A"
+  proxied = true
+  value   = module.main.public_ips[0]
+  count   = (terraform.workspace == "prod" ? 1 : 0)
+}
