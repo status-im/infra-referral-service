@@ -41,6 +41,8 @@
           user: root
           restart: 'always'
           env_file: '{{ referral_srv_service_path }}/db.env'
+          ports:
+            - '{{ referral_srv_db_port }}:{{ referral_srv_db_port }}/tcp'
           tmpfs:
             - '/run/postgresql'
             - '/tmp'
