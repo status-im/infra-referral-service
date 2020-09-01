@@ -27,7 +27,7 @@ referral_srv_service_compose: '{{ referral_srv_service_path }}/docker-compose.ym
 
 # Rails application hosted with puma
 referral_srv_app_name: '{{ referral_srv_service_name }}-app'
-referral_srv_app_tag: 'deploy-test'
+referral_srv_app_tag: 'latest'
 referral_srv_app_image: 'statusteam/referral-service:{{ referral_srv_app_tag }}'
 referral_srv_app_vol: '{{ referral_srv_service_path }}/app'
 referral_srv_app_port: 3000

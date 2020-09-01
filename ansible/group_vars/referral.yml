@@ -4,6 +4,9 @@ referral_srv_public_domain: '{{ stage }}-referral.status.im'
 referral_srv_public_port: 443
 referral_srv_public_protocol: 'https'
 
+# Use image depending on stage
+referral_srv_app_tag: 'deploy-{{ stage }}'
+
 # Google Sign-In
 referral_srv_google_sign_in_client_id: '{{lookup("passwordstore", "service/referral-service/"+stage+"/google/sign-in-client-id")}}'
 referral_srv_google_sign_in_client_secret: '{{lookup("passwordstore", "service/referral-service/"+stage+"/google/sign-in-client-secret")}}'
