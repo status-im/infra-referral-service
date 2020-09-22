@@ -2,6 +2,7 @@
 # Narrow users for host
 bootstrap__active_users:
   - { name: jakub,   uid: 7006, groups: [] }
+  - { name: andreap, uid: 7012, groups: [] }
   - { name: petty,   uid: 7028, groups: [] }
   - { name: andre,   uid: 7027, groups: [], key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbFsNIyC5qBHoTXsTTBjjvKdkAa30XXYbjumkfBwTkG4C6gJqHeIf/v5A0rl+zl5MYbWaoaFx2dqz6qMn/I2e764fjbEMxDqR/JpBpO/6X1jrqIlEUx1zycXT9Y7shud1wvyGXlOcinEYlIJjRJxSV+96zCKqlOxzSrNxKoMsy8Bjn5tMSpmd6Kz7lPezD9brMPzKQZ70RK2eZqObMsM5TMUYIsdStbjGV/2GHVN2veBeEej7VBBGCCckIM0IPT8g+IA5RtesYSnrJejA4I12fop+kFfFX7+LsSjxomMpKtRLkL9xt2tWbnfkQHo/ILpxEISUwK5xsU3mnbbD1fH2t andre@status.im' }
   - { name: jarrad,  uid: 7030, groups: [], key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwNIJ07rCf23WJYPHBAU2PGhGuWrvx8Zu8eguiyaxtk2QN+bGQ0FBUCTl7CyJGtSckEF06u2JvaUj7qdfzNnxUZbppZCKwLh9hcLGEM0cU54SHrOl9akcPjMDNuOHWomPPIxLzmUDwjBlryYLTSjijf07BVeY2dEzVyWneU+a9RHbkUt6L2uKDTF1VYSK165GDDQrFTZFrgsJ0Zjm4xCSyFtK6ChwnLmF/ECpn1W8t1LzWdX/5QgcC7ohUPfxupGq2PG0cLiqR2RSSt23G1FKgCxKaJNh2okRwwZgIccMN8uovKxSJp9DwwLVAkU9HVS5EAZhIf1jFLdDVKWRfUfBn me@jarradhope.com' }
