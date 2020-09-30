@@ -6,6 +6,8 @@ referral_srv_public_protocol: 'https'
 
 # Key base for production cookies
 referral_srv_secret_key_base: ~
+# The salt for the hashing of ips
+referral_srv_ip_salt: ~
 
 # required service env variables
 referral_srv_google_sign_in_client_id: ~

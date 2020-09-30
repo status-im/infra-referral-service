@@ -19,6 +19,8 @@ referral_srv_eth_private_key: '{{lookup("passwordstore", "service/referral-servi
 
 # Rails secret key base
 referral_srv_secret_key_base: '{{lookup("passwordstore", "service/referral-service/"+stage+"/secret-key-base")}}'
+# The salt for the hashing of ips
+referral_srv_ip_salt: '{{lookup("passwordstore", "service/referral-service/"+stage+"/ip-salt")}}'
 
 # GeoIP API Auth
 referral_srv_geoip_account_id: '{{lookup("passwordstore", "service/referral-service/"+stage+"/geoip/account-id")}}'

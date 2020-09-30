@@ -13,6 +13,8 @@ referral_srv_public_protocol: 'https'
 
 # for production cookies
 referral_srv_secret_key_base: '128charLongHexadecimal'
+# for hashing of ips
+referral_srv_ip_salt: 'A-Reasonably-Long-Random-String'
 
 # For Play Store integration
 referral_srv_google_sign_in_client_id: '1234-abcd..apps.googleusercontent.com'
