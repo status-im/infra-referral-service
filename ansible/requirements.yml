@@ -1,6 +1,6 @@
 ---
 - name: nginx
-  src: git@github.com:status-im/ansible-role-nginx.git
+  src: git@github.com:status-im/infra-role-nginx.git
   scm: git
 
 - name: nginx-metrics
