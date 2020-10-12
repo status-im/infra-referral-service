@@ -3,6 +3,10 @@
   src: git@github.com:status-im/ansible-role-nginx.git
   scm: git
 
+- name: nginx-metrics
+  src: git@github.com:status-im/infra-role-nginx-metrics.git
+  scm: git
+
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
   scm: git

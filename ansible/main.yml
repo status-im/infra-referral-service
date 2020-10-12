@@ -6,4 +6,5 @@
     - { role: swap-file,        tags: swap-file }
     - { role: referral-service, tags: referral-service }
     - { role: nginx,            tags: nginx }
+    - { role: nginx-metrics,    tags: nginx-metrics }
     - { role: threatstack,      tags: threatstack }
