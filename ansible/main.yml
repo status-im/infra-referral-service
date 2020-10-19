@@ -7,4 +7,4 @@
     - { role: referral-service, tags: referral-service }
     - { role: nginx,            tags: nginx }
     - { role: nginx-metrics,    tags: nginx-metrics }
-    - { role: threatstack,      tags: threatstack }
+    - { role: threatstack,      tags: threatstack, when: stage == "prod" }
