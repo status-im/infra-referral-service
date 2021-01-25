@@ -1,8 +1,14 @@
 
 terraform {
-  required_version = ">= 0.12"
+  required_version = "~> 0.13.3"
   required_providers {
-    cloudflare   = " = 2.3.0"
-    digitalocean = " = 1.20.0"
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = " = 2.10.1"
+    }
+    digitalocean = {
+      source  = "digitalocean/digitalocean"
+      version = " = 1.22.2"
+    }
   }
 }
