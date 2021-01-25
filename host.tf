@@ -8,7 +8,7 @@ module "main" {
   host_count = 1
   env        = "referral"
   group      = "referral"
-  size       = "s-1vcpu-2gb"
+  size       = "s-4vcpu-8gb"
   domain     = var.domain
 
   open_tcp_ports = ["80", "443"]
