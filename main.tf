@@ -42,3 +42,9 @@ locals {
       zone.name => zone.id
   }
 }
+
+/* WORKSPACES -----------------------------------*/
+
+locals {
+  ws = merge(local.env["defaults"], local.env[terraform.workspace])
+}
