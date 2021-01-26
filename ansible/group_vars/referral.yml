@@ -44,6 +44,10 @@ nginx_sites:
     - ssl_certificate     /certs/status.im/origin.crt
     - ssl_certificate_key /certs/status.im/origin.key
 
+    - location = / {
+        return 302 https://status.im/get/;
+      }
+
     - location / {
         proxy_set_header Host $host;
         proxy_set_header X-Forwarded-Proto $scheme;
