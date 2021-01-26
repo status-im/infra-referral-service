@@ -25,6 +25,8 @@ referral_srv_ip_salt: '{{lookup("passwordstore", "service/referral-service/"+sta
 # GeoIP API Auth
 referral_srv_geoip_account_id: '{{lookup("passwordstore", "service/referral-service/"+stage+"/geoip/account-id")}}'
 referral_srv_geoip_license_key: '{{lookup("passwordstore", "service/referral-service/"+stage+"/geoip/license-key")}}'
+# NOTE: For now we don't do campaigns in US so we disable GeoIP to save money.
+referral_srv_geoip_enabled: false
 
 # Referral Service API port
 referral_srv_app_port: 3000
