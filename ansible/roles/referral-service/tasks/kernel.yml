@@ -2,7 +2,7 @@
 - name: Avoid Redis save failure due to low memory
   sysctl:
     name: vm.overcommit_memory
-    value: 1
+    value: '1'
 
 - name: Disable Transparent Huge Pages for Redis
   shell: echo never > /sys/kernel/mm/transparent_hugepage/enabled
