@@ -34,6 +34,11 @@ referral_srv_app_port: 3000
 # add a swap file to avoid memory issues when syncing
 swap_file_size_mb: 2048
 
+# With large volume of requests more workers are required.
+nginx_worker_rlimit_nofile: 4098
+nginx_events_params:
+ - worker_connections 2048
+
 # Proxy for WSGI server assumed to run on port 8000
 nginx_sites:
   referral_service:
