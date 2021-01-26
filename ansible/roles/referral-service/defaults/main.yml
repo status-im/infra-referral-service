@@ -20,6 +20,7 @@ referral_srv_eth_contract_name: ~
 referral_srv_eth_private_key: ~
 
 # GeoIP API Auth
+referral_srv_geoip_enabled: false
 referral_srv_geoip_account_id: ~
 referral_srv_geoip_license_key: ~
 
