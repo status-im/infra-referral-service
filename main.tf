@@ -1,16 +1,3 @@
-/* DERIVED --------------------------------------*/
-provider "digitalocean" {
-  token             = var.digitalocean_token
-  spaces_access_id  = var.digitalocean_spaces_id
-  spaces_secret_key = var.digitalocean_spaces_key
-}
-
-provider "cloudflare" {
-  email      = var.cloudflare_email
-  api_key    = var.cloudflare_token
-  account_id = var.cloudflare_account
-}
-
 /* DATA -----------------------------------------*/
 
 terraform {
