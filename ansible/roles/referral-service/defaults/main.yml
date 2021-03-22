@@ -39,6 +39,14 @@ referral_srv_app_port: 3000
 referral_srv_queue_name: '{{ referral_srv_service_name }}-queue'
 referral_srv_queue_image: '{{ referral_srv_app_image }}'
 
+# Redis for transaction cache
+referral_srv_cache_name: '{{ referral_srv_service_name }}-cache'
+referral_srv_cache_tag: '5.0-alpine'
+referral_srv_cache_image: 'redis:{{ referral_srv_cache_tag }}'
+referral_srv_cache_vol: '{{ referral_srv_service_path }}/cache'
+referral_srv_cache_port: 6379
+referral_srv_cache_db: '0'
+
 # PostgreSQL for data storage
 referral_srv_db_cont_name: '{{ referral_srv_service_name }}-db'
 referral_srv_db_tag: '9.6-alpine'
@@ -51,13 +59,12 @@ referral_srv_db_name: 'referral'
 referral_srv_db_user: 'referral'
 referral_srv_db_pass: 'changeIfYouCare'
 
-# Redis for transaction cache
-referral_srv_cache_name: '{{ referral_srv_service_name }}-cache'
-referral_srv_cache_tag: '5.0-alpine'
-referral_srv_cache_image: 'redis:{{ referral_srv_cache_tag }}'
-referral_srv_cache_vol: '{{ referral_srv_service_path }}/cache'
-referral_srv_cache_port: 6379
-referral_srv_cache_db: '0'
+# Database backups
+referral_srv_db_backup_name: 'dump-{{ referral_srv_service_name }}-db'
+referral_srv_db_backup_user: 'root'
+referral_srv_db_backup_frequency: 'daily'
+referral_srv_db_backup_timeout: 300
+referral_srv_db_backup_after: 'docker.service'
 
 # general container management
 compose_state: 'present'

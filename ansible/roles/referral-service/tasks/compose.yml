@@ -35,6 +35,15 @@
             - 'db'
             - 'cache'
 
+        cache:
+          container_name: '{{ referral_srv_cache_name }}'
+          image: '{{ referral_srv_cache_image }}'
+          restart: 'always'
+          # docker-entrypoint.sh tries to chown /data which will not work
+          entrypoint: redis-server
+          volumes:
+            - '{{ referral_srv_cache_vol }}:/data'
+
         db:
           container_name: '{{ referral_srv_db_cont_name }}'
           image: '{{ referral_srv_db_image }}'
@@ -47,13 +56,5 @@
             - '/run/postgresql'
             - '/tmp'
           volumes:
-            - '{{ referral_srv_db_vol }}:/var/lib/postgresql/data'
-
-        cache:
-          container_name: '{{ referral_srv_cache_name }}'
-          image: '{{ referral_srv_cache_image }}'
-          restart: 'always'
-          # docker-entrypoint.sh tries to chown /data which will not work
-          entrypoint: redis-server
-          volumes:
-            - '{{ referral_srv_cache_vol }}:/data'
+            - '{{ referral_srv_db_vol }}/data:/var/lib/postgresql/data'
+            - '{{ referral_srv_db_vol }}/backup:/backup'
