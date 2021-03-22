@@ -34,6 +34,15 @@ referral_srv_app_port: 3000
 # add a swap file to avoid memory issues when syncing
 swap_file_size_mb: 2048
 
+# Restic Backups
+restic_user_groups: ['dockremap']
+restic_backups:
+  - name: 'referral-db'
+    path: '{{ referral_srv_db_vol }}/backup'
+    tags: ['pgdumpdir']
+    after: '{{ referral_srv_db_backup_name }}.service'
+    frequency: 'daily'
+
 # With large volume of requests more workers are required.
 nginx_worker_rlimit_nofile: 4098
 nginx_events_params:

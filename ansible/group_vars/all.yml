@@ -15,6 +15,10 @@ origin_certs:
     key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
     default: true
 
+# Master password for backups
+restic_repo_master_pass: '{{lookup("passwordstore", "service/restic/master-pass")}}'
+restic_ssh_public_key: '{{lookup("passwordstore", "service/restic/ssh-public")}}'
+
 # general container config
 cont_state: started
 cont_recreate: false

@@ -5,6 +5,7 @@
     - { role: origin-certs,     tags: origin-certs }
     - { role: swap-file,        tags: swap-file }
     - { role: referral-service, tags: referral-service }
+    - { role: restic-backups,   tags: restic-backups }
     - { role: nginx,            tags: nginx }
     - { role: nginx-metrics,    tags: nginx-metrics }
     - { role: threatstack,      tags: threatstack, when: stage == "prod" }

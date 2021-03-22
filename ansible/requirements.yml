@@ -38,3 +38,7 @@
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
   scm: git
+
+- name: restic-backups
+  src: git@github.com:status-im/infra-role-restic-backups.git
+  scm: git
