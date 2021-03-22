@@ -1,0 +1,57 @@
+---
+version: '3.7'
+services:
+  app:
+    container_name: '{{ referral_srv_app_name }}'
+    image: '{{ referral_srv_app_image }}'
+    restart: 'always'
+    env_file: '{{ referral_srv_service_path }}/app.env'
+    labels:
+      # automatic image updates
+      com.centurylinklabs.watchtower.enable: 'true'
+      com.centurylinklabs.watchtower.lifecycle.post-update: 'rake db:migrate'
+    ports:
+      - '{{ referral_srv_app_port }}:{{ referral_srv_app_port }}/tcp'
+    volumes:
+      - '{{ referral_srv_app_vol }}:/data'
+    depends_on:
+      - 'db'
+      - 'cache'
+      - 'queue'
+
+  queue:
+    container_name: '{{ referral_srv_queue_name }}'
+    image: '{{ referral_srv_queue_image }}'
+    restart: 'always'
+    env_file: '{{ referral_srv_service_path }}/app.env'
+    command: 'sidekiq'
+    labels:
+      # automatic image updates
+      com.centurylinklabs.watchtower.enable: 'true'
+    depends_on:
+      - 'db'
+      - 'cache'
+
+  cache:
+    container_name: '{{ referral_srv_cache_name }}'
+    image: '{{ referral_srv_cache_image }}'
+    restart: 'always'
+    # docker-entrypoint.sh tries to chown /data which will not work
+    entrypoint: redis-server
+    volumes:
+      - '{{ referral_srv_cache_vol }}:/data'
+
+  db:
+    container_name: '{{ referral_srv_db_cont_name }}'
+    image: '{{ referral_srv_db_image }}'
+    user: root
+    restart: 'always'
+    env_file: '{{ referral_srv_service_path }}/db.env'
+    ports:
+      - '{{ referral_srv_db_port }}:{{ referral_srv_db_port }}/tcp'
+    tmpfs:
+      - '/run/postgresql'
+      - '/tmp'
+    volumes:
+      - '{{ referral_srv_db_vol }}/data:/var/lib/postgresql/data'
+      - '{{ referral_srv_db_vol }}/backup:/backup'

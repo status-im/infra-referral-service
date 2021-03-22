@@ -1,8 +1,8 @@
 ---
 - name: 'Create compose file: {{ referral_srv_service_name }}'
-  copy:
+  template:
+    src: 'docker-compose.yml.j2'
     dest: '{{ referral_srv_service_compose }}'
-    content: '{{ referral_srv_compose | to_nice_yaml }}'
     owner: dockremap
     group: docker
     mode: 0644
@@ -18,7 +18,4 @@
 
 # Migrations need to run before the app
 - name: 'Run migrations: {{ referral_srv_service_name }}'
-  command: |
-    docker exec \
-      '{{ referral_srv_app_name }}' \
-      rake db:migrate
+  command: 'docker exec {{ referral_srv_app_name }} rake db:migrate'
