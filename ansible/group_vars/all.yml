@@ -1,12 +1,12 @@
 ---
+# Root password
+bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
+# Consul encryption key
+bootstrap__consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
+
 # Narrow users for host
 bootstrap__active_extra_users:
   - { name: jarrad,  uid: 7030, groups: [], key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwNIJ07rCf23WJYPHBAU2PGhGuWrvx8Zu8eguiyaxtk2QN+bGQ0FBUCTl7CyJGtSckEF06u2JvaUj7qdfzNnxUZbppZCKwLh9hcLGEM0cU54SHrOl9akcPjMDNuOHWomPPIxLzmUDwjBlryYLTSjijf07BVeY2dEzVyWneU+a9RHbkUt6L2uKDTF1VYSK165GDDQrFTZFrgsJ0Zjm4xCSyFtK6ChwnLmF/ECpn1W8t1LzWdX/5QgcC7ohUPfxupGq2PG0cLiqR2RSSt23G1FKgCxKaJNh2okRwwZgIccMN8uovKxSJp9DwwLVAkU9HVS5EAZhIf1jFLdDVKWRfUfBn me@jarradhope.com' }
-
-# general container config
-cont_state: started
-cont_recreate: false
-cont_restart: false
 
 # CloudFlare Origin certificates
 origin_certs:
@@ -15,8 +15,7 @@ origin_certs:
     key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
     default: true
 
-# Root password
-bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
-
-# Consul Encryption
-consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
+# general container config
+cont_state: started
+cont_recreate: false
+cont_restart: false
