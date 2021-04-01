@@ -7,5 +7,6 @@
     - { role: referral-service, tags: referral-service }
     - { role: restic-backups,   tags: restic-backups }
     - { role: nginx,            tags: nginx }
+    - { role: open-ports,       tags: open-ports }
     - { role: nginx-metrics,    tags: nginx-metrics }
     - { role: threatstack,      tags: threatstack, when: stage == "prod" }

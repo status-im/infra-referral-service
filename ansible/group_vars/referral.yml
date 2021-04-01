@@ -43,6 +43,10 @@ restic_backups:
     after: '{{ referral_srv_db_backup_name }}.service'
     frequency: 'daily'
 
+# Open Nginx Ports
+open_ports_default_comment: 'HTTP & HTTPS'
+open_ports_list: [ {port: 80}, {port: 443} ]
+
 # With large volume of requests more workers are required.
 nginx_worker_rlimit_nofile: 4098
 nginx_events_params:
