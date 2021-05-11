@@ -16,8 +16,8 @@ origin_certs:
     default: true
 
 # Master password for backups
-restic_repo_master_pass: '{{lookup("passwordstore", "service/restic/master-pass")}}'
-restic_ssh_public_key: '{{lookup("passwordstore", "service/restic/ssh-public")}}'
+restic_repo_master_pass: '{{lookup("passwordstore", "services/restic/master-pass")}}'
+restic_ssh_public_key: '{{lookup("passwordstore", "services/restic/ssh-public")}}'
 
 # general container config
 cont_state: started

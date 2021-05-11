@@ -8,23 +8,23 @@ referral_srv_public_protocol: 'https'
 referral_srv_app_tag: 'deploy-{{ stage }}'
 
 # Google Sign-In
-referral_srv_google_sign_in_client_id: '{{lookup("passwordstore", "service/referral-service/"+stage+"/google/sign-in-client-id")}}'
-referral_srv_google_sign_in_client_secret: '{{lookup("passwordstore", "service/referral-service/"+stage+"/google/sign-in-client-secret")}}'
+referral_srv_google_sign_in_client_id: '{{lookup("passwordstore", "services/referral-service/"+stage+"/google/sign-in-client-id")}}'
+referral_srv_google_sign_in_client_secret: '{{lookup("passwordstore", "services/referral-service/"+stage+"/google/sign-in-client-secret")}}'
 
 # Ethereum contract
-referral_srv_eth_http_endpoint: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/endpoint")}}'
-referral_srv_eth_contract_address: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/contract-addr")}}'
-referral_srv_eth_contract_name: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/contract-name")}}'
-referral_srv_eth_private_key: '{{lookup("passwordstore", "service/referral-service/"+stage+"/eth/priv-key")}}'
+referral_srv_eth_http_endpoint: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/endpoint")}}'
+referral_srv_eth_contract_address: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/contract-addr")}}'
+referral_srv_eth_contract_name: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/contract-name")}}'
+referral_srv_eth_private_key: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/priv-key")}}'
 
 # Rails secret key base
-referral_srv_secret_key_base: '{{lookup("passwordstore", "service/referral-service/"+stage+"/secret-key-base")}}'
+referral_srv_secret_key_base: '{{lookup("passwordstore", "services/referral-service/"+stage+"/secret-key-base")}}'
 # The salt for the hashing of ips
-referral_srv_ip_salt: '{{lookup("passwordstore", "service/referral-service/"+stage+"/ip-salt")}}'
+referral_srv_ip_salt: '{{lookup("passwordstore", "services/referral-service/"+stage+"/ip-salt")}}'
 
 # GeoIP API Auth
-referral_srv_geoip_account_id: '{{lookup("passwordstore", "service/referral-service/"+stage+"/geoip/account-id")}}'
-referral_srv_geoip_license_key: '{{lookup("passwordstore", "service/referral-service/"+stage+"/geoip/license-key")}}'
+referral_srv_geoip_account_id: '{{lookup("passwordstore", "services/referral-service/"+stage+"/geoip/account-id")}}'
+referral_srv_geoip_license_key: '{{lookup("passwordstore", "services/referral-service/"+stage+"/geoip/license-key")}}'
 # NOTE: For now we don't do campaigns in US so we disable GeoIP to save money.
 referral_srv_geoip_enabled: false
 
