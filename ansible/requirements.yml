@@ -6,7 +6,7 @@
 
 - name: nginx-metrics
   src: git@github.com:status-im/infra-role-nginx-metrics.git
-  version: b888cb6fb8badb0ce69e19892e543f1236375205
+  version: 2732384f14706cfc3dd40f618b6a3eda71d3d6db
   scm: git
 
 - name: origin-certs
@@ -21,7 +21,7 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: efd7dd1f249bc4cb4f9dcc9ee2ff4ce04f9ac3bd
+  version: 4dfd3e0b32a93e1f07a73c6794684bae21f2e556
   scm: git
 
 - name: consul-service
@@ -46,5 +46,5 @@
 
 - name: restic-backups
   src: git@github.com:status-im/infra-role-restic-backups.git
-  version: 43ef47534f536fb24e0c145c840ba445e9c5161f
+  version: 6031db0c72094aaa09ea70fa6be172ab85f247ee
   scm: git
