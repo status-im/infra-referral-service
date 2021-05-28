@@ -6,6 +6,7 @@ Configured by the [`ansible/roles/referral-service`](ansible/roles/referral-serv
 
 # Endpoints
 
+* https://get.status.im/ - Alias for Production
 * https://prod-referral.status.im/admin - Production
 * https://test-referral.status.im/admin - Testing
 
