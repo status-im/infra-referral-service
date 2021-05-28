@@ -8,23 +8,23 @@ referral_srv_public_protocol: 'https'
 referral_srv_app_tag: 'deploy-{{ stage }}'
 
 # Google Sign-In
-referral_srv_google_sign_in_client_id: '{{lookup("passwordstore", "services/referral-service/"+stage+"/google/sign-in-client-id")}}'
-referral_srv_google_sign_in_client_secret: '{{lookup("passwordstore", "services/referral-service/"+stage+"/google/sign-in-client-secret")}}'
+referral_srv_google_sign_in_client_id: '{{lookup("bitwarden", "referral-service/"+stage+"/google-oauth", field="client-id")}}'
+referral_srv_google_sign_in_client_secret: '{{lookup("bitwarden", "referral-service/"+stage+"/google-oauth", field="secret")}}'
 
 # Ethereum contract
-referral_srv_eth_http_endpoint: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/endpoint")}}'
-referral_srv_eth_contract_address: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/contract-addr")}}'
-referral_srv_eth_contract_name: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/contract-name")}}'
-referral_srv_eth_private_key: '{{lookup("passwordstore", "services/referral-service/"+stage+"/eth/priv-key")}}'
+referral_srv_eth_http_endpoint: '{{lookup("bitwarden", "referral-service/"+stage+"/eth-contract", field="endpoint")}}'
+referral_srv_eth_contract_address: '{{lookup("bitwarden", "referral-service/"+stage+"/eth-contract", field="addr")}}'
+referral_srv_eth_contract_name: '{{lookup("bitwarden", "referral-service/"+stage+"/eth-contract", field="name")}}'
+referral_srv_eth_private_key: '{{lookup("bitwarden", "referral-service/"+stage+"/eth-contract", field="priv-key")}}'
 
 # Rails secret key base
-referral_srv_secret_key_base: '{{lookup("passwordstore", "services/referral-service/"+stage+"/secret-key-base")}}'
+referral_srv_secret_key_base: '{{lookup("bitwarden", "referral-service/"+stage+"/app", field="secret-key-base")}}'
 # The salt for the hashing of ips
-referral_srv_ip_salt: '{{lookup("passwordstore", "services/referral-service/"+stage+"/ip-salt")}}'
+referral_srv_ip_salt: '{{lookup("bitwarden", "referral-service/"+stage+"/app", field="ip-salt")}}'
 
 # GeoIP API Auth
-referral_srv_geoip_account_id: '{{lookup("passwordstore", "services/referral-service/"+stage+"/geoip/account-id")}}'
-referral_srv_geoip_license_key: '{{lookup("passwordstore", "services/referral-service/"+stage+"/geoip/license-key")}}'
+referral_srv_geoip_account_id: '{{lookup("bitwarden", "referral-service/"+stage+"/geoip", field="account-id")}}'
+referral_srv_geoip_license_key: '{{lookup("bitwarden", "referral-service/"+stage+"/geoip", field="license-key")}}'
 # NOTE: For now we don't do campaigns in US so we disable GeoIP to save money.
 referral_srv_geoip_enabled: false
 

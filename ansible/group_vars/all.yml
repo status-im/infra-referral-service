@@ -2,7 +2,7 @@
 # Root password
 bootstrap__root_pass: '{{lookup("passwordstore", "hosts/admin-pass")}}'
 # Consul encryption key
-bootstrap__consul_encryption_key: '{{lookup("passwordstore", "services/consul/encryption-key")}}'
+bootstrap__consul_encryption_key: '{{lookup("bitwarden", "consul", field="encryption-key")}}'
 
 # Narrow users for host
 bootstrap__active_extra_users:
@@ -11,13 +11,12 @@ bootstrap__active_extra_users:
 # CloudFlare Origin certificates
 origin_certs:
   - domain: 'status.im'
-    crt: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.crt returnall=true")}}'
-    key: '{{lookup("passwordstore", "cloud/Cloudflare/status.im/origin.key returnall=true")}}'
-    default: true
+    crt: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.crt")}}'
+    key: '{{lookup("bitwarden", "Cloudflare/status.im", file="origin.key")}}'
 
 # Master password for backups
-restic_repo_master_pass: '{{lookup("passwordstore", "services/restic/master-pass")}}'
-restic_ssh_public_key: '{{lookup("passwordstore", "services/restic/ssh-public")}}'
+restic_repo_master_pass: '{{lookup("bitwarden", "restic-backups/repo", field="master-pass")}}'
+restic_ssh_public_key: '{{lookup("bitwarden", "restic-backups/ssh", field="public")}}'
 
 # general container config
 cont_state: started

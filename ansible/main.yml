@@ -8,6 +8,7 @@
   tasks:
     - local_action: command ./versioncheck.py
       changed_when: false
+    - debug: msg="{{ True | lower }}"
 
 - name: Configure Referral service host
   hosts: referral
