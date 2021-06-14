@@ -21,7 +21,7 @@
 
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
-  version: 00bf675dfe0048321fcbade925a95e23f6212b87
+  version: 0aca5b6927373c04b9713408e9d6b9284a906d75
   scm: git
 
 - name: consul-service
@@ -41,15 +41,10 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: b4ef4557682ff5cf1e7da841cbfb195992589f60
+  version: 52416665fcc2a879559259b3469d1a3ac58f6ed1
   scm: git
 
 - name: restic-backups
   src: git@github.com:status-im/infra-role-restic-backups.git
-  version: 6031db0c72094aaa09ea70fa6be172ab85f247ee
-  scm: git
-
-- name: ansible-modules-bitwarden
-  src: https://github.com/c0sco/ansible-modules-bitwarden
-  version: 126a5e5ea66609ec3aec052f10b84823308b4e25
+  version: 18167aec2b87fb27cd29d5237bd3edfdcec12235
   scm: git
