@@ -44,8 +44,15 @@ restic_backups:
     frequency: 'daily'
 
 # Open Nginx Ports
-open_ports_default_comment: 'HTTP & HTTPS'
-open_ports_list: [ {port: 80}, {port: 443} ]
+open_ports_default_comment: 'Referral Service'
+open_ports_default_chain: 'SERVICES'
+open_ports_list:
+  - { port: 80  }
+  - { port: 443 }
+  - { port: '{{ nginx_metrics_listen_port }}', chain: 'VPN', ipset: 'metrics.hq' }
+
+# Nginx Metrics
+nginx_metrics_listen_port: 9113
 
 # With large volume of requests more workers are required.
 nginx_worker_rlimit_nofile: 4098
