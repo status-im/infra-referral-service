@@ -50,6 +50,7 @@ open_ports_list:
   - { port: 80  }
   - { port: 443 }
   - { port: '{{ nginx_metrics_listen_port }}', chain: 'VPN', ipset: 'metrics.hq' }
+  - { port: '{{ referral_srv_db_port }}',      chain: 'VPN', ipset: 'redash.bi' }
 
 # Nginx Metrics
 nginx_metrics_listen_port: 9113
