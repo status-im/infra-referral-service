@@ -11,12 +11,12 @@
 locals {
   env = {
     defaults = {
-      host_size = "s-1vcpu-2gb"
+      host_type = "s-1vcpu-2gb"
     }
 
     test = {}
     prod = {
-      host_size = "s-4vcpu-8gb"
+      host_type = "s-4vcpu-8gb"
     }
   }
 }
