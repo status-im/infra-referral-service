@@ -11,7 +11,7 @@
 
 - name: origin-certs
   src: git@github.com:status-im/infra-role-origin-certs.git
-  version: 60587f86e085255b537cc37647003af105214d20
+  version: f2b061da8976444d6576b755578f0e799cde4372
   scm: git
 
 - name: open-ports
@@ -21,22 +21,22 @@
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 0125727cae15f3dacf9e12ff0dcd13d891961463
+  version: 08cbaaf426aec73bb112da228b6c0ffd6b939993
   scm: git
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: 6cc6472e32b6dc53d7d854ab5a34d554451bec15
+  version: 6c83e0bdcecba772e5c652c89e1995865d14c662
   scm: git
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 7ee51839e6a032e6ca27dfb00951e897b5385609
+  version: 4849a3c9d7f2045669880e4e17eeb71980b2e4d0
   scm: git
 
 - name: threatstack
   src: git@github.com:status-im/infra-role-threatstack.git
-  version: 90b3fa5df2c5b72402adce7e12cba0da44a7daa1
+  version: 581bf6f1bd8b0d4873a77166b9ceb48a417565eb
   scm: git
 
 - name: swap-file
@@ -46,10 +46,10 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 827033833eaf994d3b6f6ac1b555b90fdf1dd467
+  version: 0cc94695f3dada39213a87fbe923cd90e2a7d2c2
   scm: git
 
 - name: restic-backups
   src: git@github.com:status-im/infra-role-restic-backups.git
-  version: b0debe383d45eac9e280dc3a143957b05fdc0c73
+  version: 4367541946452f135fcb66ddfc7ca152617a04a1
   scm: git
