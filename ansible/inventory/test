@@ -9,3 +9,6 @@ node-01.do-ams3.referral.test
 [referral]
 node-01.do-ams3.referral.test
 
+[referral.test]
+node-01.do-ams3.referral.test
+
