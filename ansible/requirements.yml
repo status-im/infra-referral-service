@@ -6,7 +6,7 @@
 
 - name: nginx-metrics
   src: git@github.com:status-im/infra-role-nginx-metrics.git
-  version: ac90f648f6b2431b2f33bf3a6c35d0b7e930d7c9
+  version: c0bc0325c11a4f1a5692b6d61efe5bde8c33aa41
   scm: git
 
 - name: origin-certs
@@ -16,17 +16,17 @@
 
 - name: open-ports
   src: git@github.com:status-im/infra-role-open-ports.git
-  version: 24dc30dbdf85e6758cb6924074b2f7a0f4541524
+  version: 7f2d730d60a3efc9e5e96e4c55490b7f9e0fd70e
   scm: git
 
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  version: 827e55412990026ad43756bd11f2cb698bdea622
+  version: dd70ea358b3e71f01a29766a93efb1fa40494a65
   scm: git
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  version: 5f06d8a2a464a7c11aa07b5ee0cca33eedb4095b
+  version: 3427d5cc8dddff490ab982f51ec4b8cee88ccae3
   scm: git
 
 - name: consul-service
@@ -46,7 +46,7 @@
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 24b9f3c82b0f2cc89211e40b0abce07e983e67c1
+  version: 15fadc81c5bf709be3e0d6071cebb6d6d8287ea0
   scm: git
 
 - name: restic-backups
