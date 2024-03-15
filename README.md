@@ -1,3 +1,5 @@
+## :warning: This is a legacy repository and no longer used.
+
 # Description
 
 This repo configures infrastructure for the [referral-service](https://github.com/status-im/referral-service).
